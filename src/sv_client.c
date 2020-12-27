@@ -121,7 +121,7 @@ typedef void (*SV_SendClientSnapshot_t)(client_t*);
 SV_SendClientSnapshot_t SV_SendClientSnapshot = (SV_SendClientSnapshot_t)0x808F844; //0x08098C23 1.51
 
 SV_StopDownload_f_t SV_StopDownload_f = (SV_StopDownload_f_t)0x8087960; //0x0808C09 1.51
-SV_BeginDownload_f_t SV_BeginDownload_f = (SV_BeginDownload_f_t)0x8087A64; //
+SV_BeginDownload_f_t SV_BeginDownload_f = (SV_BeginDownload_f_t)0x8087A64; //0x808C25D 1.51
 getuserinfo_t getuserinfo = (getuserinfo_t)0x808B25C; //0x080911FD 1.51
 setuserinfo_t setuserinfo = (setuserinfo_t)0x808B1D0; //0x08091153 1.51
 SV_DropClient_t SV_DropClient = (SV_DropClient_t)0x8085CF4; //0x0808BA15 1.51
