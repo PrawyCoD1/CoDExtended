@@ -1,15 +1,15 @@
-# Call of Duty Extended
+# Call of Duty UO Extended
 
-CoDExtended is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+CoDUOExtended is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 ====
 
-Call of Duty Extended is a modification for Call of Duty 1, which does what it says it extends CoD with new features, increasing limits and fixing bugs.
+Call of Duty UO Extended is a modification for Call of Duty UO 1.51, which does what it says it extends CoD UO with new features, increasing limits and fixing bugs.
 
 # Usage
 
 Your startup commandline for your Call of Duty dedicated server would look something like this.
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:. LD_PRELOAD=/path/to/codextended.so ./cod_lnxded
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:. LD_PRELOAD=/path/to/coduoextended.so ./coduo_lnxded
 
 # Dependencies / libraries
 
@@ -28,7 +28,7 @@ cd codextended
 cd src
 ./build.sh
 
-You should now have a codextended.so file in your ../bin folder.
+You should now have a coduoextended.so file in your ../bin folder.
 
 # MySQL / MariaDB
 
@@ -47,11 +47,8 @@ To compile with these options you can use arguments passed to the build script.
 
 # Questions
 
-If you have any question post a new thread or PM me on http://xtnded.org
-or add me on steam.
-
-Steam: riicchhaarrd
+If you have any question add me on Discord: Prawy#3490
 
 ====
 
-Thanks to kung foo man (http://killtube.org) and his libcod project (CoD 2 memory modification) (https://github.com/kungfooman/libcod)
+Thanks to kung foo man (http://killtube.org) and his libcod project (CoD 2 memory modification) (https://github.com/kungfooman/libcod), php (http://xtnded.org)  and his codextended project (https://github.com/riicchhaarrd/CoDExtended/)
