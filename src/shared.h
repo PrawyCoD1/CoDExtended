@@ -70,7 +70,7 @@ typedef unsigned char boolean;
 #define VERSION_STRING "Call of Duty Extended %.1f\n"
 #define EXTENDEDVERSION 1f
 
-static void* (*Z_MallocInternal)(size_t) = (void*(*)(size_t))0x80681E8;
+static void* (*Z_MallocInternal)(size_t) = (void*(*)(size_t))0x80681E8; //0x0806BB38 from ebusiangamer
 static void (*Z_FreeInternal)(void*) = (void(*)(void*))0x8068224;
 
 static void* (*Hunk_AllocateTempMemoryHighInternal)(size_t) = (void*(*)(size_t))0x806823C;
