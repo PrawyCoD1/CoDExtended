@@ -20,11 +20,11 @@
 
 char **configstrings = (char**)0x8355678; //0x8494E98 1.51
 
-#void (*MSG_Init)( msg_t *buf, byte *data, int length ) = (void (*)(msg_t*,byte*,int))0x807EEB8; //It doesn't exists for UO probably
-#void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0EC; //It doesn't exists for UO probably
-void (*MSG_WriteString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A620; // 0x08080607 for 1.51?
+void (*MSG_Init)( msg_t *buf, byte *data, int length ) = (void (*)(msg_t*,byte*,int))0x807EEB8; //0x0808012C 1.51 from ebusiangamer
+void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0EC; //0x080805B9 from ebusiangamer
+void (*MSG_WriteString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A620; // 0x08080607 1.51
 void (*MSG_WriteByte)(msg_t*,int) = (void(*)(msg_t*,int))0x807F090; //0x80804DC 1.51
-#void (*MSG_WriteShort)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0BC; //It doesn't exists for UO probably
+void (*MSG_WriteShort)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0BC; //0x08080569 1.51 from ebusiangamer
 void (*MSG_WriteBigString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A758; //0x80806DF 1.51
 void (*SV_SendMessageToClient)(msg_t*,client_t*) = (void(*)(msg_t*,client_t*))0x808F680; //0x8098A23 1.51
 
