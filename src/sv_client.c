@@ -96,15 +96,15 @@ void SV_DoneDownload_f(client_t*);
 void SV_NextDownload_f(client_t *cl);
 
 static ucmd_t ucmds[] = {
-	{"userinfo", (void*)0x8087B28},
-	{"disconnect", (void*)0x8087AF8},
-	{"cp", (void*)0x808674C},//SV_VerifyPaks_f},
-	{"vdr", (void*)0x8087B14},
-	{"download", SV_BeginDownload},
-	{"nextdl", (void*)0x8086168},
-	{"stopdl", (void*)0x8087960},
-	{"donedl", (void*)0x80879FC},
-	{"retransdl", (void*)0x8087A2C},
+	{"userinfo", (void*)0x8087B28}, //0x808D514 1.51
+	{"disconnect", (void*)0x8087AF8}, //0x808CF08 1.51
+	{"cp", (void*)0x808674C},//SV_VerifyPaks_f}, //0x808CF23 1.51
+	{"vdr", (void*)0x8087B14}, //0x808D2B5 1.51
+	{"download", SV_BeginDownload}, //0x808C25D 1.51
+	{"nextdl", (void*)0x8086168}, //0x808C159 1.51 
+	{"stopdl", (void*)0x8087960}, //0x808C09F 1.51
+	{"donedl", (void*)0x80879FC}, //0x808C0EF 1.51
+	{"retransdl", (void*)0x8087A2C}, //0x808C11A 1.51
 	
 	{"codextended", SV_CoDExtended_f},
 	#ifdef xDEBUG
