@@ -126,7 +126,7 @@ getuserinfo_t getuserinfo = (getuserinfo_t)0x808B25C; //0x080911FD 1.51
 setuserinfo_t setuserinfo = (setuserinfo_t)0x808B1D0; //0x08091153 1.51
 SV_DropClient_t SV_DropClient = (SV_DropClient_t)0x8085CF4; //0x0808BA15 1.51
 
-void (*SV_FreeClient_o)(client_t*) = (void(*)(client_t*))0x808D34C; //0x8070248 1.51 probably
+void (*SV_FreeClient_o)(client_t*) = (void(*)(client_t*))0x808D34C; //0x808ABB3 1.51 probably
 
 void SV_FreeClient(client_t *cl) {
 	/*void (*free_script_stuff)(unsigned short) = (void(*)(unsigned short))0x80A3BE4;
@@ -137,9 +137,9 @@ void SV_FreeClient(client_t *cl) {
 	SV_FreeClient_o(cl);
 }
 
-SV_FreeClientScriptId_t SV_FreeClientScriptId = (SV_FreeClientScriptId_t)0x808D34C; //0x8070248 1.51 probably
+SV_FreeClientScriptId_t SV_FreeClientScriptId = (SV_FreeClientScriptId_t)0x808D34C; //0x808ABB3 1.51 probably
 
-challenge_t *challenges = (challenge_t*)0x83B67F8; //0x8433FC0 1.51 probably
+challenge_t *challenges = (challenge_t*)0x83B67F8; //0x8433FC0 or 0x084F7060 1.51 probably
 
 char	*ConcatArgs( int start ) {
 	int		i, c, tlen;
