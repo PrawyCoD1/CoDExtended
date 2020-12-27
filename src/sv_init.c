@@ -18,8 +18,8 @@
 #include "server.h"
 #include <sys/stat.h>
 
-SV_SetConfigstring_t SV_SetConfigstring = (SV_SetConfigstring_t)0x8089BF0;
-SV_GetConfigstring_t SV_GetConfigstring = (SV_GetConfigstring_t)0x808B05C;
+SV_SetConfigstring_t SV_SetConfigstring = (SV_SetConfigstring_t)0x8089BF0; //0x8090DA8 1.51
+SV_GetConfigstring_t SV_GetConfigstring = (SV_GetConfigstring_t)0x808B05C;  //probably doesn't exists for 1.51
 
 netadr_t authorizeAddress;
 netadr_t masterAddress;
@@ -84,7 +84,7 @@ cvar_t *developer;
 void SV_Init( void ) {
 	void (*init)( void );
 	#if CODPATCH == 1
-	*(int*)&init = 0x808A94C;
+	*(int*)&init = 0x808A94C; //0x8092211 1.51
 	#else if CODPATCH == 5
 	*(int*)&init = 0x80913B3;
 	#endif
@@ -161,8 +161,8 @@ void SV_Init( void ) {
 	*/
 	
 	if(x_nopbots->integer) {
-		__nop(0x808D152, 5);
-		__nop(0x808D492, 5);
+		__nop(0x808D152, 5); //0x8094CAD 1.51
+		__nop(0x808D492, 5); //0x8094FCA 1.51
 	}
 	
 	#if CODPATCH == 5
@@ -207,11 +207,11 @@ void SV_Init( void ) {
 }
 
 void SV_Shutdown(char *finalmsg) {
-	void (*o)(char*) = (void(*)(char*))0x808AD8C;
+	void (*o)(char*) = (void(*)(char*))0x808AD8C; //0x80928C2 1.51
 	o(finalmsg);
 }
 
 void SV_SpawnServer(char *server) {
-	void (*spawnserver)(char*) = (void(*)(char*))0x808A220;
+	void (*spawnserver)(char*) = (void(*)(char*))0x808A220; //0x8091B72 1.51
 	spawnserver(server);
 }
