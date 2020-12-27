@@ -27,7 +27,7 @@ void SV_Version() {
 	#ifdef xDEBUG
 	printf("Call of Duty Extended Developer v%d by riicchhaarrd\nA lot of thanks to kungfooman and libcod\n", CURRENTBUILD);
 	#else
-	printf("Call of Duty Extended v%d by riicchhaarrd\nA lot of thanks to kungfooman and libcod\n", CURRENTBUILD);
+	printf("Call of Duty Extended v%d by riicchhaarrd\nA lot of thanks to kungfooman and libcod\n\nPort to UO by Prawy", CURRENTBUILD);
 	#endif
 }
 
@@ -41,8 +41,8 @@ void SV_XStatus_f() {
 
 	Com_Printf( "map: %s\n", mapname->string );
 	
-	Com_Printf( "num mUID                             name            lastmsg ip                    qport rate  ping\n" );
-	Com_Printf( "--- -------------------------------- --------------- ------- --------------------- ----- ----- ----\n" );
+	Com_Printf( "num  name            lastmsg ip                    qport rate  ping\n" );
+	Com_Printf( "---  --------------- ------- --------------------- ----- ----- ----\n" );
 	
 	int i , j, l;
 	const char* s;
@@ -72,7 +72,7 @@ void SV_XStatus_f() {
 		for ( j = 0 ; j < l ; j++ )
 			Com_Printf( " " );
 		
-		int tt = *(int*)0x83B67A4 - *(int *)((int)cl + 68364);
+		int tt = *(int*)0x83B67A4 - *(int *)((int)cl + 68364); //0x84F7010 for 1.51 probably
 		Com_Printf( "%7i ", tt );
 		
 		s = NET_AdrToString( cl->netchan.remoteAddress );
@@ -102,7 +102,7 @@ void SV_XStatus_f() {
 
 void SV_Status_f() {
 	void (*call)();
-	*(int*)&call = 0x80846B4;
+	*(int*)&call = 0x80846B4; //0x8088ED1 probably 1.51
 	
 	if(!sv_running->integer) {
 		Com_Printf( "Server is not running.\n" );
@@ -199,7 +199,7 @@ void Cmd_GetConfigstrings() {
 }
 
 void SV_Heartbeat_f( void ) {
-	*(int*)0x83B67F4 = -9999999;
+	*(int*)0x83B67F4 = -9999999;  //*(int*)0x84F7058 = 2147483648; 1.51
 }
 
 static void SV_ServerInfo_f( void ) {
@@ -244,42 +244,42 @@ static void SV_DumpUser_f( void ) {
 
 static void SV_MapRestart_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8083DE4;
+	*(int*)&call = 0x8083DE4; //0x8088325 1.51
 	
 	call();
 }
 
 static void SV_Map_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8083C68;
+	*(int*)&call = 0x8083C68; //0x80880C9 1.51
 	
 	call();
 }
 
 static void SV_MapRotate_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x80840C8;
+	*(int*)&call = 0x80840C8; //0x80886E5 1.51
 	
 	call();
 }
 
 void SV_GameCompleteStatus_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D54;
+	*(int*)&call = 0x8084D54; //0x8089425 1.51
 	
 	call();
 }
 
 static void SV_KillServer_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D3C;
+	*(int*)&call = 0x8084D3C; //0x8089404 1.51
 	
 	call();
 }
 
 void SV_Say_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084974;
+	*(int*)&call = 0x8084974; //0x808921B 1.51
 	
 	call();
 }
@@ -333,21 +333,21 @@ void SV_Tell_f( void ) {
 
 void SV_StringUsage_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D74;
+	*(int*)&call = 0x8084D74; //0x8089432 1.51
 	
 	call();
 }
 
 void SV_ScriptUsage_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D64;
+	*(int*)&call = 0x8084D64;  //0x8089425 1.51
 	
 	call();
 }
 
 void SV_KickNum_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084BE4;
+	*(int*)&call = 0x8084BE4; //kicknum doesn't exists in uo
 	
 	call();
 }
