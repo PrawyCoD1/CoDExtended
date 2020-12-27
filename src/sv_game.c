@@ -13,14 +13,16 @@
 
     You should have received a copy of the GNU General Public License
     along with CoDExtended.  If not, see <http://www.gnu.org/licenses/>.
+    
+    8090DA8 xzy offset
 */
 
 #include "bg_public.h"
 #include "server.h"
 #include "script.h"
 
-SV_SendServerCommand_t SV_SendServerCommand = (SV_SendServerCommand_t)0x808B900;
-SV_GentityNum_t SV_GentityNum = (SV_GentityNum_t)0x8089258;
+SV_SendServerCommand_t SV_SendServerCommand = (SV_SendServerCommand_t)0x808B900; //0x8092F86  1.51
+SV_GentityNum_t SV_GentityNum = (SV_GentityNum_t)0x8089258; //0x0808E0E8 from ebusiangamer
 
 T_SetBrushModel_t T_SetBrushModel;
 T_UnlinkEntity_t T_UnlinkEntity;
@@ -47,7 +49,7 @@ void set_trap_func_ptr( void ) {
 	__call(GAME("ClientEndFrame")+0x98, (unsigned)_SpectatorClientEndFrame);
 	
 	#if 0
-	scr_entityfield_t *fields = (scr_entityfield_t*)( GAME("vmMain") + 0x28094 );
+	scr_entityfield_t *fields = (scr_entityfield_t*)( GAME("vmMain") + 0x28094 ); //0x1A3E0 probably 1.51
 	FILE *fp = fopen("entfields.txt", "w");
 	
 	fprintf(fp, "scr_entityfield_t scr_entityfields[] = {\n");
