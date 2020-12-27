@@ -18,15 +18,15 @@
 #include "server.h"
 #include <sys/time.h>
 
-char **configstrings = (char**)0x8355678;
+char **configstrings = (char**)0x8355678; //0x8494E98 1.51
 
 void (*MSG_Init)( msg_t *buf, byte *data, int length ) = (void (*)(msg_t*,byte*,int))0x807EEB8;
-void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0EC;
+void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0EC; 
 void (*MSG_WriteString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A620; // 0x08080607 for 1.51?
-void (*MSG_WriteByte)(msg_t*,int) = (void(*)(msg_t*,int))0x807F090;
+void (*MSG_WriteByte)(msg_t*,int) = (void(*)(msg_t*,int))0x807F090; //0x80804DC 1.51
 void (*MSG_WriteShort)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0BC;
-void (*MSG_WriteBigString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A758;
-void (*SV_SendMessageToClient)(msg_t*,client_t*) = (void(*)(msg_t*,client_t*))0x808F680;
+void (*MSG_WriteBigString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A758; //0x80806DF 1.51
+void (*SV_SendMessageToClient)(msg_t*,client_t*) = (void(*)(msg_t*,client_t*))0x808F680; //0x8098A23 1.51
 
 int clientversion = 0;
 
@@ -45,7 +45,7 @@ typedef struct {
 	void ( *func )( client_t *cl );
 } ucmd_t;
 
-//static ucmd_t* ucmds = (ucmd_t*)0x80E2F4C;
+//static ucmd_t* ucmds = (ucmd_t*)0x80E2F4C; //0x80F4F80 1.51
 
 void SV_BeginDownload(client_t*);
 void SV_CoDExtended_f(client_t*);
@@ -1123,7 +1123,7 @@ void SV_CoDExtended_f( client_t *cl ) {
 	SV_SendMessageToClient(&msg, cl);
 	#endif
 	
-	void (*SV_AddServerCommand)(client_t *, int, const char*) = (void(*)(client_t*,int,const char*))0x808B680;
+	void (*SV_AddServerCommand)(client_t *, int, const char*) = (void(*)(client_t*,int,const char*))0x808B680; //0x8092CC3 1.51
 	
 	SV_SendServerCommand(cl, 0, "e \"This server is powered by CoDExtended.\n^2Thanks for playing %s\"", cl->name);
 }
