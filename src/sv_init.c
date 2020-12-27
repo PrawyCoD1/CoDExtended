@@ -19,7 +19,7 @@
 #include <sys/stat.h>
 
 SV_SetConfigstring_t SV_SetConfigstring = (SV_SetConfigstring_t)0x8089BF0; //0x8090DA8 1.51
-SV_GetConfigstring_t SV_GetConfigstring = (SV_GetConfigstring_t)0x808B05C;  //probably doesn't exists for 1.51
+SV_GetConfigstring_t SV_GetConfigstring = (SV_GetConfigstring_t)0x808B05C;  //probably doesn't exists for 1.51!
 
 netadr_t authorizeAddress;
 netadr_t masterAddress;
