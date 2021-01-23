@@ -185,7 +185,7 @@ void SV_PacketEvent( netadr_t from, msg_t *msg ) {
 	#endif
 	
 	void (*o)(netadr_t,msg_t*);
-	*(int*)&o = 0x808C870;
+	*(int*)&o = 0x808C870; //0x80949F4 1.51
 	
 	o(from,msg);
 }
@@ -323,7 +323,7 @@ void SV_MasterHeartBeat(const char* hbname) {
 	if(dedicated->integer != 2)
 		return;
 		
-	int* nextHeartbeatTime = (int*)0x83B67F4; //couldn't find for 1.51
+	int* nextHeartbeatTime = (int*)0x83B67F4; //couldn't find for 1.51 but maybe 0x808977D
 	
 	if(svs_time < *nextHeartbeatTime)
 		return;
@@ -464,7 +464,7 @@ void SVC_RemoteCommand(netadr_t *from, msg_t *msg) {
             return;
     }
 	
-	(( void (*)(netadr_t,msg_t*) )0x808C404)(*from, msg); //couldn't find for 1.51
+	(( void (*)(netadr_t,msg_t*) )0x808C404)(*from, msg); //0x8094031 1.51
 }
 
 void SV_ConnectionlessPacket( netadr_t from, msg_t *msg ) {
