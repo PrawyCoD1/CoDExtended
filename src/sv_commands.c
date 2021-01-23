@@ -72,7 +72,7 @@ void SV_XStatus_f() {
 		for ( j = 0 ; j < l ; j++ )
 			Com_Printf( " " );
 		
-		int tt = *(int*)0x83B67A4 - *(int *)((int)cl + 68364); //0x84F7010 for 1.51 probably
+		int tt = *(int*)0x084F7008 - *(int *)((int)cl + 68364); //0x084F7008 for 1.51, 1.1 0x83B67A4
 		Com_Printf( "%7i ", tt );
 		
 		s = NET_AdrToString( cl->netchan.remoteAddress );
@@ -102,7 +102,7 @@ void SV_XStatus_f() {
 
 void SV_Status_f() {
 	void (*call)();
-	*(int*)&call = 0x80846B4; //0x8088ED1 probably 1.51
+	*(int*)&call = 0x8088ED1; //0x8088ED1 1.51
 	
 	if(!sv_running->integer) {
 		Com_Printf( "Server is not running.\n" );
@@ -199,7 +199,7 @@ void Cmd_GetConfigstrings() {
 }
 
 void SV_Heartbeat_f( void ) {
-	*(int*)0x83B67F4 = -9999999;  //*(int*)0x84F7058 = 2147483648; 1.51
+	*(int*)0x84F7058 = 2147483648;  //*(int*)0x84F7058 = 2147483648; 1.51, 1.1 0x83B67F4
 }
 
 static void SV_ServerInfo_f( void ) {
@@ -244,42 +244,42 @@ static void SV_DumpUser_f( void ) {
 
 static void SV_MapRestart_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8083DE4; //0x8088325 1.51
+	*(int*)&call = 0x8088325; //0x8088325 1.51, 1.1 0x8083DE4
 	
 	call();
 }
 
 static void SV_Map_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8083C68; //0x80880C9 1.51
+	*(int*)&call = 0x80880C9; //0x80880C9 1.51, 1.1 0x8083C68
 	
 	call();
 }
 
 static void SV_MapRotate_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x80840C8; //0x80886E5 1.51
+	*(int*)&call = 0x80886E5; //0x80886E5 1.51, 1.1 0x80840C8
 	
 	call();
 }
 
 void SV_GameCompleteStatus_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D54; //0x8089425 1.51
+	*(int*)&call = 0x8089425; //0x8089425 1.51, 1.1 0x8084D54
 	
 	call();
 }
 
 static void SV_KillServer_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D3C; //0x8089404 1.51
+	*(int*)&call = 0x8089404; //0x8089404 1.51, 1.1 0x8084D3C
 	
 	call();
 }
 
 void SV_Say_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084974; //0x808921B 1.51
+	*(int*)&call = 0x808921B; //0x808921B 1.51, 1.1 0x8084974
 	
 	call();
 }
@@ -333,25 +333,25 @@ void SV_Tell_f( void ) {
 
 void SV_StringUsage_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D74; //0x8089432 1.51
+	*(int*)&call = 0x8089432; //0x8089432 1.51, 1.1 0x8084D74
 	
 	call();
 }
 
 void SV_ScriptUsage_f( void ) {
 	void (*call)( void );
-	*(int*)&call = 0x8084D64;  //0x8089425 1.51
+	*(int*)&call = 0x8089425;  //0x8089425 1.51, 1.1 0x8084D64
 	
 	call();
 }
-
+/*
 void SV_KickNum_f( void ) {
 	void (*call)( void );
 	*(int*)&call = 0x8084BE4; //kicknum doesn't exists in uo
 	
 	call();
 }
-
+*/
 static bool sv_listmsg = false;
 
 void SV_WasAdded(const char* cmd, int id, const char* name) {
@@ -828,7 +828,7 @@ void X_ReadBannedList_sub() {
 }
 
 void SV_AddOperatorCommands(void) {
-	static qboolean* initialized = (qboolean*)0x8160680;
+	static qboolean* initialized = (qboolean*)0x829EDA0;// 1.51 0x829EDA0, 1.1  0x8160680
 	
 	if(*initialized)
 		return;
