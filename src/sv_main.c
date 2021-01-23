@@ -20,7 +20,7 @@
 
 #define MAX_MSGLEN 32000
 
-vm_t *gvm = (vm_t*)0x80E30C4; //0x84F6FD0 1.51
+vm_t *gvm = (vm_t*)0x84F6FD0; //0x84F6FD0 1.51, 0x80E30C4 1.1
 
 cvar_t *sv_maxclients;
 cvar_t *sv_privateClients;
@@ -81,11 +81,11 @@ char SVC_CHANDELIER[12];
 
 typedef void (*Huff_Decompress_t)( msg_t *mbuf, int offset );
 #if CODPATCH == 1
-Huff_Decompress_t Huff_Decompress = (Huff_Decompress_t)0x8071F7C; //0x8077435 1.51
-SV_GetClientScore_t SV_GetClientScore = (SV_GetClientScore_t)0x808D2DC; //0x80932C9 1.51
+Huff_Decompress_t Huff_Decompress = (Huff_Decompress_t)0x8077435; //0x8077435 1.51, 1.1 0x8071F7C
+SV_GetClientScore_t SV_GetClientScore = (SV_GetClientScore_t)0x80932C9; //0x80932C9 1.51, 0x808D2DC 1.1
 #else
-Huff_Decompress_t Huff_Decompress = (Huff_Decompress_t)0x8076C31; //0x807C793 1.51
-SV_GetClientScore_t SV_GetClientScore = (SV_GetClientScore_t)0x8092421; //0x809C3AA 1.51
+Huff_Decompress_t Huff_Decompress = (Huff_Decompress_t)0x807C793; //0x807C793 1.51, 1.1 0x8076C31
+SV_GetClientScore_t SV_GetClientScore = (SV_GetClientScore_t)0x809C3AA; //0x809C3AA 1.51, 1.1 0x8092421
 #endif
 
 /*
@@ -323,7 +323,7 @@ void SV_MasterHeartBeat(const char* hbname) {
 	if(dedicated->integer != 2)
 		return;
 		
-	int* nextHeartbeatTime = (int*)0x83B67F4; //couldn't find for 1.51 but maybe 0x808977D
+	int* nextHeartbeatTime = (int*)0x808977D; //couldn't find for 1.51 but maybe 0x808977D, 1.1 0x83B67F4
 	
 	if(svs_time < *nextHeartbeatTime)
 		return;
@@ -464,7 +464,7 @@ void SVC_RemoteCommand(netadr_t *from, msg_t *msg) {
             return;
     }
 	
-	(( void (*)(netadr_t,msg_t*) )0x808C404)(*from, msg); //0x8094031 1.51
+	(( void (*)(netadr_t,msg_t*) )0x8094031)(*from, msg); //0x8094031 1.51, 1.1 0x808C404
 }
 
 void SV_ConnectionlessPacket( netadr_t from, msg_t *msg ) {
@@ -546,7 +546,8 @@ void SV_ConnectionlessPacket( netadr_t from, msg_t *msg ) {
 }
 
 void SV_Frame(int msec) {
-	void (*o)(int) = (void(*)(int))0x808CDF8; //0x8095202 1.51
+	void (*o)(int) = (void(*)(int))0x8095202; //0x8095202 1.51, 1.1 0x808CDF8
+
 
 	o(msec);
 
