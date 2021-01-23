@@ -842,7 +842,7 @@ void SV_AddOperatorCommands(void) {
 	
 	Cmd_AddCommand("reloadbans", X_ReadBannedList_sub);
 	
-	Cmd_AddCommand("clientkick", SV_KickNum_f);
+	//Cmd_AddCommand("clientkick", SV_KickNum_f);
 	Cmd_AddCommand("clientban", SV_BanNum_f);
 	
 	Cmd_AddCommand("banip", SV_BanIP_f);
