@@ -323,7 +323,7 @@ void SV_MasterHeartBeat(const char* hbname) {
 	if(dedicated->integer != 2)
 		return;
 		
-	int* nextHeartbeatTime = (int*)0x808977D; //couldn't find for 1.51 but maybe 0x808977D, 1.1 0x83B67F4
+	int* nextHeartbeatTime = (int*)0x84F7058; //1.51  0x84F7058, 1.1 0x83B67F4
 	
 	if(svs_time < *nextHeartbeatTime)
 		return;
