@@ -20,13 +20,13 @@
 
 char **configstrings = (char**)0x8355678; //0x8494E98 1.51
 
-void (*MSG_Init)( msg_t *buf, byte *data, int length ) = (void (*)(msg_t*,byte*,int))0x807EEB8; //0x0808012C 1.51 from ebusiangamer
-void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0EC; //0x080805B9 from ebusiangamer
-void (*MSG_WriteString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A620; // 0x08080607 1.51
-void (*MSG_WriteByte)(msg_t*,int) = (void(*)(msg_t*,int))0x807F090; //0x80804DC 1.51
-void (*MSG_WriteShort)(msg_t*,int) = (void(*)(msg_t*,int))0x807F0BC; //0x08080569 1.51 from ebusiangamer
-void (*MSG_WriteBigString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x807A758; //0x80806DF 1.51
-void (*SV_SendMessageToClient)(msg_t*,client_t*) = (void(*)(msg_t*,client_t*))0x808F680; //0x8098A23 1.51
+void (*MSG_Init)( msg_t *buf, byte *data, int length ) = (void (*)(msg_t*,byte*,int))0x0808012C; //0x0808012C 1.51 from ebusiangamer, 1.1 0x807EEB8
+void (*MSG_WriteLong)(msg_t*,int) = (void(*)(msg_t*,int))0x080805B9; //0x080805B9 from ebusiangamer, 1.1 0x807F0EC
+void (*MSG_WriteString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x08080607; // 0x08080607 1.51, 1.1 0x807A620
+void (*MSG_WriteByte)(msg_t*,int) = (void(*)(msg_t*,int))0x80804DC; //0x80804DC 1.51, 1.1 0x807F090
+void (*MSG_WriteShort)(msg_t*,int) = (void(*)(msg_t*,int))0x08080569; //0x08080569 1.51 from ebusiangamer, 1.1 0x807F0BC
+void (*MSG_WriteBigString)(msg_t*,const char*) = (void(*)(msg_t*,const char*))0x80806DF; //0x80806DF 1.51, 1.1 0x807A758
+void (*SV_SendMessageToClient)(msg_t*,client_t*) = (void(*)(msg_t*,client_t*))0x8098A23; //0x8098A23 1.51, 1.1 0x808F680
 
 int clientversion = 0;
 
@@ -96,15 +96,15 @@ void SV_DoneDownload_f(client_t*);
 void SV_NextDownload_f(client_t *cl);
 
 static ucmd_t ucmds[] = {
-	{"userinfo", (void*)0x8087B28}, //0x808D514 1.51
-	{"disconnect", (void*)0x8087AF8}, //0x808CF08 1.51
-	{"cp", (void*)0x808674C},//SV_VerifyPaks_f}, //0x808CF23 1.51
-	{"vdr", (void*)0x8087B14}, //0x808D2B5 1.51
+	{"userinfo", (void*)0x808D514}, //0x808D514 1.51, 1.1 0x8087B28
+	{"disconnect", (void*)0x808CF08}, //0x808CF08 1.51, 1.1 0x8087AF8
+	{"cp", (void*)0x808CF23},//SV_VerifyPaks_f}, //0x808CF23 1.51, 1.1 0x808674C
+	{"vdr", (void*)0x808D2B5}, //0x808D2B5 1.51, 1.1 0x8087B14
 	{"download", SV_BeginDownload}, //0x808C25D 1.51
-	{"nextdl", (void*)0x8086168}, //0x808C159 1.51 
-	{"stopdl", (void*)0x8087960}, //0x808C09F 1.51
-	{"donedl", (void*)0x80879FC}, //0x808C0EF 1.51
-	{"retransdl", (void*)0x8087A2C}, //0x808C11A 1.51
+	{"nextdl", (void*)0x808C159}, //0x808C159 1.51 , 1.1 0x8086168
+	{"stopdl", (void*)0x808C09F}, //0x808C09F 1.51, 1.1 0x8087960
+	{"donedl", (void*)0x808C0EF}, //0x808C0EF 1.51, 1.1 0x80879FC
+	{"retransdl", (void*)0x808C11A}, //0x808C11A 1.51, 1.1 0x8087A2C
 	
 	{"codextended", SV_CoDExtended_f},
 	#ifdef xDEBUG
@@ -118,13 +118,13 @@ client_t **clients = (client_t**)svsclients_ptr;
 
 typedef void (*SV_SendClientSnapshot_t)(client_t*);
 
-SV_SendClientSnapshot_t SV_SendClientSnapshot = (SV_SendClientSnapshot_t)0x808F844; //0x08098C23 1.51
+SV_SendClientSnapshot_t SV_SendClientSnapshot = (SV_SendClientSnapshot_t)0x08098C23; //0x08098C23 1.51, 1.1 0x808F844
 
-SV_StopDownload_f_t SV_StopDownload_f = (SV_StopDownload_f_t)0x8087960; //0x0808C09 1.51
-SV_BeginDownload_f_t SV_BeginDownload_f = (SV_BeginDownload_f_t)0x8087A64; //0x808C25D 1.51
-getuserinfo_t getuserinfo = (getuserinfo_t)0x808B25C; //0x080911FD 1.51
-setuserinfo_t setuserinfo = (setuserinfo_t)0x808B1D0; //0x08091153 1.51
-SV_DropClient_t SV_DropClient = (SV_DropClient_t)0x8085CF4; //0x0808BA15 1.51
+SV_StopDownload_f_t SV_StopDownload_f = (SV_StopDownload_f_t)0x0808C09; //0x0808C09 1.51,1.1 0x8087960
+SV_BeginDownload_f_t SV_BeginDownload_f = (SV_BeginDownload_f_t)0x808C25D; //0x808C25D 1.51, 1.1 0x8087A64
+getuserinfo_t getuserinfo = (getuserinfo_t)0x080911FD; //0x080911FD 1.51, 1.1 0x808B25C
+setuserinfo_t setuserinfo = (setuserinfo_t)0x08091153; //0x08091153 1.51, 1.1 0x808B1D0
+SV_DropClient_t SV_DropClient = (SV_DropClient_t)0x0808BA15; //0x0808BA15 1.51, 1.1 0x8085CF4
 
 void (*SV_FreeClient_o)(client_t*) = (void(*)(client_t*))0x808D34C; //0x808ABB3 1.51 probably
 
@@ -139,7 +139,7 @@ void SV_FreeClient(client_t *cl) {
 
 SV_FreeClientScriptId_t SV_FreeClientScriptId = (SV_FreeClientScriptId_t)0x808D34C; //0x808ABB3 1.51 probably
 
-challenge_t *challenges = (challenge_t*)0x83B67F8; //0x8433FC0 or 0x084F7060 1.51 probably
+challenge_t *challenges = (challenge_t*)0x084F7060; //0x084F7060 1.51 probably, 1.1 0x83B67F8
 
 char	*ConcatArgs( int start ) {
 	int		i, c, tlen;
@@ -452,7 +452,7 @@ void Info_SetValueForKey_Big( char *s, const char *key, const char *value ) {
 void SV_SendClientGameState(client_t *cl) {
 	last_cl = cl;
 	
-	((void(*)(client_t*))0x8085EEC)(cl); //0x80CA1BC 1.51 
+	((void(*)(client_t*))0x808BC48)(cl); //0x808BC48 1.51 , 1.1 0x8085EEC
 }
 
 void SV_ExecuteClientMessage(client_t *cl, msg_t *msg) {
@@ -483,7 +483,7 @@ void SV_NextDownload_f(client_t *cl) {
 	int *downloadBlockSize = (int*)((int)cl + 68316);
 	int *downloadSendTime = (int*)((int)cl + 68352);
 	
-	((void(*)(client_t*))0x8086168)(cl); //0x0808C159 1.51
+	((void(*)(client_t*))0x0808C159)(cl); //0x0808C159 1.51, 1.1 0x8086168
 	#if 0
 	
 	if ( block == *downloadClientBlock ) {
@@ -495,7 +495,7 @@ void SV_NextDownload_f(client_t *cl) {
 			Com_Printf( "clientDownload: %d : file \"%s\" completed\n", get_client_number(cl), cl->downloadName );
 			SV_SendClientGameState(cl);
 			
-			((void(*)(client_t*))0x80878F4)(cl); //SV_CloseDownload 0x8086A5A 1.51
+			((void(*)(client_t*))0x8086A5A)(cl); //SV_CloseDownload 0x8086A5A 1.51, 1.1 0x80878F4
 			return;
 		}
 
@@ -513,7 +513,7 @@ void SV_NextDownload_f(client_t *cl) {
 void SV_DirectConnect( netadr_t from ) {
 	void (*call)(netadr_t);
 	#if CODPATCH == 1
-	*(int*)&call = 0x8085498; //0x0808AC82  1.51
+	*(int*)&call = 0x0808AC82; //0x0808AC82  1.51, 1.1 0x8085498
 	#else if CODPATCH == 5
 	*(int*)&call = 0x8089E7E;
 	#endif
@@ -751,7 +751,7 @@ void SV_DirectConnect( netadr_t from ) {
 		Q_strncpyz(xclients[clientNum].mUID, x_challenges[i_challenge].mUID, sizeof(xclients[clientNum])); //copy mUID from challenge to xclients
 	
 	newcl->gentity = (unsigned)SV_GentityNum(clientNum);
-	unsigned short (*Scr_AllocArray)() = (unsigned short(*)())0x80A2610; //0x80A6864
+	unsigned short (*Scr_AllocArray)() = (unsigned short(*)())0x80A6864; //0x80A6864 1.51, 1.1 0x80A2610
 	*(unsigned short*)((unsigned)newcl + 370928) = Scr_AllocArray();
 	
 	newcl->challenge = challenge;
@@ -759,7 +759,7 @@ void SV_DirectConnect( netadr_t from ) {
 	
 	Q_strncpyz(newcl->userinfo, userinfo, sizeof(newcl->userinfo));
 	
-	char *denied = (char*)VM_Call(*(int*)0x80E30C4, 2, clientNum, *(unsigned short*)((unsigned)newcl + 370928)); //0x84F6FD0 1.51 
+	char *denied = (char*)VM_Call(*(int*)0x84F6FD0, 2, clientNum, *(unsigned short*)((unsigned)newcl + 370928)); //0x84F6FD0 1.51 , 1.1 0x80E30C4
 	
 	if(denied) {
 		NET_OutOfBandPrint( NS_SERVER, from, "error\n%s", denied );
@@ -894,7 +894,7 @@ void Cmd_DumpClient_f() {
 	if(f) {
 		fprintf(f, "DUMP\n");
 		fprintf(f, "netname test = %s\n", (char*)(base + 8628));
-		for(unsigned int i = 0; i < 8900; i++) {
+		for(unsigned int i = 0; i < 18228; i++) {  //1.1 8900, 1.51 18228
 			result = *(unsigned int*)(base + i);
 			rf = *(float*)(base + i);
 			rstr = (char*)(base + i);
@@ -1059,7 +1059,7 @@ int QDECL SV_ClientCommand(client_t *cl, msg_t *msg) {
 	}
 
 	if(clientOk) {
-		if(!u->name && *(int*)0x8355260 == 2) { //0x8494A80 1.51
+		if(!u->name && *(int*)0x8494A80 == 2) { //0x8494A80 1.51, 1.1 0x8355260
 			
 			//long long timestamp = current_timestamp();
 			
@@ -1081,7 +1081,7 @@ int QDECL SV_ClientCommand(client_t *cl, msg_t *msg) {
 					goto skip_vm_call;
 			}
 			
-			VM_Call(*(int*)0x80E30C4, 6, get_client_number( cl )); //works 0x84F6FD0 1.51 
+			VM_Call(*(int*)0x84F6FD0, 6, get_client_number( cl )); //works 0x84F6FD0 1.51 , 1.1 0x80E30C4
 			//VM_Call(gvm, GAME_CLIENT_COMMAND, get_client_number( cl ));
 			//((int (*)(int,...))GAME("vmMain"))(6,get_client_number(cl));
 			//((void (QDECL *)(int))GAME("ClientCommand"))(get_client_number(cl));
@@ -1099,7 +1099,7 @@ int QDECL SV_ClientCommand(client_t *cl, msg_t *msg) {
 	last_client_number = (((int)&cl->state - *(int*)svsclients_ptr) / clientsize);
 	Com_DPrintf("last_client_number = %d\n", last_client_number);
 
-	return ((qboolean (*) (client_t*, msg_t*))0x8086E08)(cl, msg); //0x808D629 1.51
+	return ((qboolean (*) (client_t*, msg_t*))0x808D629)(cl, msg); //0x808D629 1.51, 1.1 0x8086E08
 	#endif
 }
 
@@ -1123,7 +1123,7 @@ void SV_CoDExtended_f( client_t *cl ) {
 	SV_SendMessageToClient(&msg, cl);
 	#endif
 	
-	void (*SV_AddServerCommand)(client_t *, int, const char*) = (void(*)(client_t*,int,const char*))0x808B680; //0x8092CC3 1.51
+	void (*SV_AddServerCommand)(client_t *, int, const char*) = (void(*)(client_t*,int,const char*))0x8092CC3; //0x8092CC3 1.51, 1.1 0x808B680
 	
 	SV_SendServerCommand(cl, 0, "e \"This server is powered by CoDExtended.\n^2Thanks for playing %s\"", cl->name);
 }
