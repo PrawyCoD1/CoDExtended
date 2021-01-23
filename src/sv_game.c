@@ -21,9 +21,9 @@
 #include "server.h"
 #include "script.h"
 
-SV_SendServerCommand_t SV_SendServerCommand = (SV_SendServerCommand_t)0x808B900; //0x8092F86  1.51
-SV_GentityNum_t SV_GentityNum = (SV_GentityNum_t)0x8089258; //0x0808E0E8 from ebusiangamer
-
+SV_SendServerCommand_t SV_SendServerCommand = (SV_SendServerCommand_t)0x8092F86; //0x8092F86  1.51, 1.1 0x808B900
+SV_GentityNum_t SV_GentityNum = (SV_GentityNum_t)0x0808E0E8; //0x0808E0E8 from ebusiangamer, 1.1 0x8089258
+/*
 T_SetBrushModel_t T_SetBrushModel;
 T_UnlinkEntity_t T_UnlinkEntity;
 T_LinkEntity_t T_LinkEntity;
@@ -60,3 +60,4 @@ void set_trap_func_ptr( void ) {
 	fclose(fp);
 	#endif
 }
+*/
